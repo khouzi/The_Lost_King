@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Effects/AxeSkeletonDeathEffect.gd" type="Script" id=1]
+[ext_resource path="res://Enemy/GOD4.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 350, 140, 70, 35 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 420, 140, 70, 35 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 490, 140, 70, 35 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 175, 70, 35 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 70, 175, 70, 35 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": false,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="AxeSkeletonDeathEffect" type="AnimatedSprite"]
+frames = SubResource( 6 )
+frame = 4
+playing = true
+script = ExtResource( 1 )

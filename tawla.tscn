@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://tableREAD.gd" type="Script" id=1]
+[ext_resource path="res://assets/table.png" type="Texture" id=2]
+[ext_resource path="res://UI/VIKING-N.TTF" type="DynamicFontData" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16.2212, 5.7462 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16.2902, 7.94212 )
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 3
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.00155507, -0.235184 )
+rotation = -0.00287521
+scale = Vector2( 1.0147, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.234259, 13.6129 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -28.1276
+margin_top = -18.2614
+margin_right = 158.872
+margin_bottom = -1.26142
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/font = SubResource( 3 )
+text = "press E to read"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0.0539265, -0.276081 )
+shape = SubResource( 2 )

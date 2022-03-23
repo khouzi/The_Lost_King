@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://shopkd.gd" type="Script" id=1]
+[ext_resource path="res://assets/texture.png" type="Texture" id=2]
+[ext_resource path="res://UI/VIKING-N.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://shopkdd.gd" type="Script" id=4]
+[ext_resource path="res://assets/arrow-01-01.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 336.406, 49.7418 ), Vector2( 336.281, 59.4569 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -42.4171, 0.96373 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 331.238, 111.238 ) ]
+}
+
+[node name="Polygon2D" type="Polygon2D"]
+position = Vector2( 119, 123 )
+scale = Vector2( 0.871592, 0.896839 )
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -10.233
+margin_top = -62.0
+margin_right = 780.767
+margin_bottom = 617.0
+rect_rotation = 0.373403
+rect_scale = Vector2( 0.442164, 0.399312 )
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 21.767
+margin_top = 24.0
+margin_right = 314.767
+margin_bottom = 61.0
+custom_fonts/normal_font = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 331.238, 111.238 )
+scale = Vector2( 0.691593, 0.691593 )
+texture = ExtResource( 5 )
+offset = Vector2( -42.4171, 0.96373 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[connection signal="timeout" from="Timer" to="RichTextLabel" method="_on_Timer_timeout"]

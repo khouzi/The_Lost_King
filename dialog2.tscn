@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://RichTextLabelC.gd" type="Script" id=1]
+[ext_resource path="res://assets/texture.png" type="Texture" id=2]
+[ext_resource path="res://UI/VIKING-N.TTF" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="Polygon2D" type="Polygon2D"]
+position = Vector2( 392, 96 )
+scale = Vector2( 0.966772, 1 )
+color = Color( 0.207843, 0.196078, 0.196078, 1 )
+invert_enable = true
+invert_border = 4.0
+polygon = PoolVector2Array( 8, 72, 8, 120, 312, 120, 312, 96, 312, 72 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -17.0
+margin_top = -9.0
+margin_right = 774.0
+margin_bottom = 670.0
+rect_rotation = 0.373403
+rect_scale = Vector2( 0.442164, 0.399312 )
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 16.0
+margin_top = 80.0
+margin_right = 304.0
+margin_bottom = 112.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="Timer" to="RichTextLabel" method="_on_Timer_timeout"]

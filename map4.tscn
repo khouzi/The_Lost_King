@@ -1,0 +1,431 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://assets/finalmap.png" type="Texture" id=1]
+[ext_resource path="res://Player/Player2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/torch.png" type="Texture" id=5]
+[ext_resource path="res://assets/statuss.png" type="Texture" id=6]
+[ext_resource path="res://World/Vase.tscn" type="PackedScene" id=7]
+[ext_resource path="res://World/black.png" type="Texture" id=8]
+[ext_resource path="res://UI/HealthUI3.gd" type="Script" id=9]
+[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://UI/HealthUI3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://map4.gd" type="Script" id=12]
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 10, 13 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 4.5, 4.5 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 16.2659, 7.76589 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 44.8906, 12.4565 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 10.2737, 8.49933 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 287.285, 14.1798 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 12.6021, 8.53059 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 12.5049, 8.78398 )
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 11.4653, 15.2368 )
+
+[sub_resource type="ConvexPolygonShape2D" id=43]
+points = PoolVector2Array( 4.13173, 45.854, 28.9183, 46.0783, 29.1427, 61.7802, 3.90742, 63.1261 )
+
+[sub_resource type="TileSet" id=44]
+0/name = "statuss.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 43 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 43 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="TileSet" id=45]
+0/name = "black.png 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 354, 176 )
+texture = ExtResource( 1 )
+
+[node name="YSort2" type="YSort" parent="."]
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="YSort2"]
+position = Vector2( 587, 76 )
+frames = SubResource( 12 )
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort2/AnimatedSprite5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort2/AnimatedSprite5/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 13 )
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="YSort2"]
+position = Vector2( 621, 108 )
+frames = SubResource( 12 )
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort2/AnimatedSprite6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort2/AnimatedSprite6/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 13 )
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="YSort2"]
+position = Vector2( 654, 140 )
+frames = SubResource( 12 )
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort2/AnimatedSprite7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort2/AnimatedSprite7/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 13 )
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="YSort2"]
+position = Vector2( 656, 234 )
+frames = SubResource( 12 )
+frame = 3
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort2/AnimatedSprite8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort2/AnimatedSprite8/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 13 )
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="YSort2"]
+position = Vector2( 624, 265 )
+frames = SubResource( 12 )
+frame = 2
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort2/AnimatedSprite9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort2/AnimatedSprite9/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 13 )
+
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="YSort2"]
+position = Vector2( 592, 298 )
+frames = SubResource( 12 )
+frame = 1
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort2/AnimatedSprite10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort2/AnimatedSprite10/StaticBody2D"]
+position = Vector2( 0, -3 )
+shape = SubResource( 13 )
+
+[node name="YSort" type="YSort" parent="."]
+position = Vector2( 975, 34 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( -432, 141 )
+z_index = 1
+
+[node name="Camera2D" parent="YSort/Player" instance=ExtResource( 3 )]
+position = Vector2( 4, 4 )
+
+[node name="topleft" parent="YSort/Player/Camera2D/limits" index="0"]
+position = Vector2( -0.144699, -0.668175 )
+
+[node name="bottomright" parent="YSort/Player/Camera2D/limits" index="1"]
+position = Vector2( 705.189, 347.54 )
+
+[node name="Player2" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( -323, 165 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 75, 132 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 171, 132 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 267, 132 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 363, 132 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 459, 132 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 555, 132 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 459, 259 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 555, 259 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 363, 259 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 267, 259 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 171, 259 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 75, 259 )
+shape = SubResource( 14 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 97.7341, 35.2341 )
+shape = SubResource( 15 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 220.777, 34.1114 )
+shape = SubResource( 15 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 300.701, 35.9468 )
+shape = SubResource( 15 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 417.666, 35.6131 )
+shape = SubResource( 15 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 518.898, 35.5663 )
+shape = SubResource( 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D3/CollisionShape2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/CollisionShape2D/StaticBody2D"]
+position = Vector2( 23.7791, 15.3895 )
+shape = SubResource( 17 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/StaticBody2D"]
+position = Vector2( 290.972, 15.0344 )
+shape = SubResource( 18 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
+build_mode = 1
+polygon = PoolVector2Array( -0.338341, -0.109161, 3, 349, 578, 348.5, 577.939, 316.955, 610.309, 317.622, 610.309, 285.586, 642.012, 285.252, 642.012, 253.216, 674.048, 252.215, 675.383, 221.848, 705.75, 219.845, 705.75, 125.405, 673.047, 125.072, 673.38, 93.7029, 642.345, 93.3692, 642.345, 61.333, 610.309, 62.6679, 610.309, 29.2969, 570.264, 29.9643, 570.264, 59.9982, 601.966, 59.6645, 602.3, 92.3681, 634.67, 92.0343, 634.002, 123.069, 665.705, 124.071, 666.039, 155.773, 700.411, 155.106, 700.745, 216.174, 673.714, 215.841, 667.373, 221.514, 667.707, 248.544, 640.677, 247.209, 636.672, 252.883, 636.338, 279.246, 608.974, 278.912, 604.636, 285.252, 604.302, 311.949, 576.604, 312.283, 571.932, 317.622, 572.266, 343.985, 9.63123, 343.652, 9.48596, 0.139107 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D5"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D5/StaticBody2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D5/StaticBody2D/StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5/StaticBody2D/StaticBody2D/StaticBody2D"]
+build_mode = 1
+polygon = PoolVector2Array( 509.567, 324.606, 509.567, 340.339, 563.413, 340.245, 563.6, 324.138, 554.329, 324.232, 554.517, 316.178, 544.309, 316.553, 544.403, 308.312, 527.547, 308.5, 527.547, 316.178, 518.37, 316.366, 518.651, 324.887 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5/StaticBody2D/StaticBody2D"]
+position = Vector2( 511.958, 254.84 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5/StaticBody2D"]
+position = Vector2( 509.935, 129.78 )
+shape = SubResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2( 688.083, 188.084 )
+shape = SubResource( 22 )
+
+[node name="TileMap6" type="TileMap" parent="."]
+position = Vector2( -80.5512, 72.0632 )
+tile_set = SubResource( 44 )
+format = 1
+tile_data = PoolIntArray( 131081, 0, 0, 458760, 0, 0 )
+
+[node name="TileMap7" type="TileMap" parent="."]
+position = Vector2( -82.2731, 74.2695 )
+tile_set = SubResource( 44 )
+format = 1
+tile_data = PoolIntArray( 9, 0, 0, 458760, 0, 0 )
+
+[node name="Vase7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 21.189, 320.926 )
+
+[node name="Vase8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 31.7055, 320.827 )
+
+[node name="Vase9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 42.3212, 320.43 )
+
+[node name="Vase10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 42.3212, 320.43 )
+
+[node name="Vase11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 52.7386, 320.132 )
+
+[node name="Vase12" parent="." instance=ExtResource( 7 )]
+position = Vector2( 64.2472, 319.934 )
+
+[node name="Vase13" parent="." instance=ExtResource( 7 )]
+position = Vector2( 75.359, 319.636 )
+
+[node name="Vase14" parent="." instance=ExtResource( 7 )]
+position = Vector2( 69.6047, 311.203 )
+
+[node name="Vase15" parent="." instance=ExtResource( 7 )]
+position = Vector2( 57.7984, 311.005 )
+
+[node name="Vase16" parent="." instance=ExtResource( 7 )]
+position = Vector2( 63.7512, 301.48 )
+
+[node name="Vase17" parent="." instance=ExtResource( 7 )]
+position = Vector2( 46.0913, 311.302 )
+
+[node name="Vase18" parent="." instance=ExtResource( 7 )]
+position = Vector2( 51.9449, 302.076 )
+
+[node name="Vase19" parent="." instance=ExtResource( 7 )]
+position = Vector2( 57.8976, 293.246 )
+
+[node name="Vase20" parent="." instance=ExtResource( 7 )]
+position = Vector2( 26.0504, 311.402 )
+
+[node name="Vase21" parent="." instance=ExtResource( 7 )]
+position = Vector2( 25.852, 302.076 )
+
+[node name="Vase24" parent="." instance=ExtResource( 7 )]
+position = Vector2( 36.0709, 311.402 )
+
+[node name="Vase22" parent="." instance=ExtResource( 7 )]
+position = Vector2( 25.3559, 291.956 )
+
+[node name="Vase23" parent="." instance=ExtResource( 7 )]
+position = Vector2( 41.0315, 301.381 )
+
+[node name="Vase25" parent="." instance=ExtResource( 7 )]
+position = Vector2( 46.885, 292.055 )
+
+[node name="Vase26" parent="." instance=ExtResource( 7 )]
+position = Vector2( 35.674, 291.46 )
+
+[node name="Vase27" parent="." instance=ExtResource( 7 )]
+position = Vector2( 29.622, 282.531 )
+
+[node name="Vase28" parent="." instance=ExtResource( 7 )]
+position = Vector2( 42.4205, 282.134 )
+
+[node name="Vase29" parent="." instance=ExtResource( 7 )]
+position = Vector2( 52.8378, 282.928 )
+
+[node name="Vase30" parent="." instance=ExtResource( 7 )]
+position = Vector2( 63.7512, 284.118 )
+
+[node name="Vase31" parent="." instance=ExtResource( 7 )]
+position = Vector2( 68.1165, 291.063 )
+
+[node name="Vase32" parent="." instance=ExtResource( 7 )]
+position = Vector2( 15.9307, 309.913 )
+
+[node name="Vase33" parent="." instance=ExtResource( 7 )]
+position = Vector2( 15.7323, 297.81 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 2.51624, -2.5162 )
+tile_set = SubResource( 45 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 0, 0, 65558, 0, 0, 131092, 0, 0, 131093, 0, 0, 131094, 0, 0, 196629, 0, 0, 196630, 0, 0, 262166, 0, 0, 327702, 0, 0, 393238, 0, 0, 458773, 0, 0, 458774, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 589843, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 10 )]
+
+[node name="HealthUI3" parent="CanvasLayer" instance=ExtResource( 11 )]
+margin_left = 31.0
+margin_right = 71.0
+script = ExtResource( 9 )
+
+[editable path="YSort/Player/Camera2D"]

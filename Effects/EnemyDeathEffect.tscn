@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Effects/Effect.gd" type="Script" id=1]
+[ext_resource path="res://Effects/bat death.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 41, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 41, 0, 41, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 82, 0, 41, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 123, 0, 41, 64 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "Animate",
+"speed": 10.0
+} ]
+
+[node name="EnemyDeathEffect" type="AnimatedSprite"]
+position = Vector2( 0, -24 )
+scale = Vector2( 0.65, 0.65 )
+frames = SubResource( 5 )
+animation = "Animate"
+frame = 2
+playing = true
+offset = Vector2( 0, -30 )
+script = ExtResource( 1 )
